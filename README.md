@@ -108,7 +108,6 @@ The system also provides a configuration mode using the **EINT1 external interru
    +---------+ +------+ +-------------+
    | Buzzer  | | LEDs | | Drink Button|
    +---------+ +------+ +-------------+
-
 Working Principle
 
 The system continuously monitors the RTC time.
@@ -448,7 +447,6 @@ Monitor the reminder schedule.
 Detect water consumption.
 Update hydration information.
 Reset daily status at midnight.
-
 Testing
 Test 1 - Normal Operation
 Power ON
@@ -464,7 +462,6 @@ LCD Displays Time
    |
    v
 Hydration Status
-
 Test 2 - Reminder
 Reminder Time Reached
           |
@@ -476,7 +473,6 @@ Reminder Time Reached
           |
           v
      DRINK WATER
-
 Test 3 - Drink Confirmation
 Press Drink Button
         |
@@ -488,7 +484,6 @@ Hydration Updated
         |
         v
 Reminder OFF
-
 Test 4 - Missed Reminder
 No Drink Confirmation
         |
@@ -500,7 +495,6 @@ Missed Count +1
         |
         v
 Red LED / Alarm Logic
-
 Test 5 - Goal Reached
 Consumed Count >= Goal
           |
@@ -512,7 +506,6 @@ Consumed Count >= Goal
           |
           v
     Reminders STOP
-
 Test 6 - Configuration
 Press Configuration Switch
             |
@@ -527,7 +520,6 @@ Press Configuration Switch
             |
             v
           Apply
-
 Test 7 - Midnight Reset
 23:59:59
     |
