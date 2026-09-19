@@ -52,7 +52,7 @@ AquaGuardian is a smart hydration reminder system designed to help users maintai
 | LCD | P0.8 – P0.18 |
 
 
-#Software Modules :
+##Software Modules :
 
 The project follows a modular embedded-C design, with separate drivers for each peripheral.
 
@@ -84,7 +84,7 @@ Plaintext
               └── delay.c/h
                      └── Software delay functions
        
-#System Operation
+##System Operation
 
 The system initializes the LPC2148 peripherals.
 
@@ -102,7 +102,7 @@ Hydration progress is continuously monitored.
 
 The external interrupt provides access to the configuration mode.
 
-#Configuration Menu :
+##Configuration Menu :
 
 The external interrupt enters configuration mode. The keypad provides the following options:
 
@@ -150,7 +150,7 @@ Plaintext
       │ 
       └──────────────→ Continue
       
-#Technologies Used :
+##Technologies Used :
 
 Embedded C
 
@@ -182,7 +182,7 @@ Keil µVision
 
 Proteus simulation
 
-#Project Structure :
+##Project Structure :
 
 Plaintext
 
@@ -223,7 +223,7 @@ Plaintext
     └── README.md
 
 
-#Learning Outcomes :
+##Learning Outcomes :
 
 This project provided practical experience in:
 
@@ -247,7 +247,7 @@ Modular driver-based software design
 
 Embedded application design
 
-#Author :
+##Author :
 
 Dasari Vishnuvardhan Reddy
 
