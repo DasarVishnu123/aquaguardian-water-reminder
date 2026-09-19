@@ -175,7 +175,7 @@ LED indicators
 
 Modular Embedded-C Programming
 
-#Development Environment :
+## Development Environment :
 
 ARM7 / LPC2148 development environment
 
