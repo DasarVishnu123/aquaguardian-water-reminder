@@ -7,10 +7,6 @@
 ![Proteus](https://img.shields.io/badge/Simulation-Proteus-red)
 ![Embedded Systems](https://img.shields.io/badge/Domain-Embedded%20Systems-lightgrey)
 
-# AquaGuardian – Smart Hydration Reminder System
-
-An embedded systems project developed using the LPC2148 ARM7 microcontroller to monitor daily water intake and provide automatic hydration reminders.
-
 ## Overview :
 
 AquaGuardian is a smart hydration reminder system designed to help users maintain their daily water intake. The system tracks the amount of water consumed, displays hydration progress on a 16×2 LCD, provides reminders using a buzzer and LEDs, and allows the user to configure hydration goals and reminder settings using a 4×4 keypad.
@@ -61,31 +57,32 @@ AquaGuardian is a smart hydration reminder system designed to help users maintai
 The project follows a modular embedded-C design, with separate drivers for each peripheral.
 
 Plaintext
-main.c
-│
-├── hydration.c/h
-│      └── Hydration and reminder management
-│
-├── rtc.c/h
-│      └── Real-Time Clock
-│
-├── lcd.c/h
-│      └── 16×2 LCD interface
-│
-├── kpm.c/h
-│      └── 4×4 keypad interface
-│
-├── led.c/h
-│      └── LED control
-│
-├── buzzer.c/h
-│      └── Buzzer control
-│
-├── interrupt.c/h
-│      └── External interrupt handling
-│
-└── delay.c/h
-       └── Software delay functions
+
+              main.c
+              │
+              ├── hydration.c/h
+              │      └── Hydration and reminder management
+              │
+              ├── rtc.c/h
+              │      └── Real-Time Clock
+              │
+              ├── lcd.c/h
+              │      └── 16×2 LCD interface
+              │
+              ├── kpm.c/h
+              │      └── 4×4 keypad interface
+              │
+              ├── led.c/h
+              │      └── LED control
+              │
+              ├── buzzer.c/h
+              │      └── Buzzer control
+              │
+              ├── interrupt.c/h
+              │      └── External interrupt handling
+              │
+              └── delay.c/h
+                     └── Software delay functions
        
 #System Operation
 
@@ -119,6 +116,7 @@ C → Exit configuration mode
 
 Project Flow :
 Plaintext
+
               ┌──────────────────┐ 
               │   System Start   │
               └────────┬─────────┘ 
