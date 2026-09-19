@@ -185,40 +185,43 @@ Proteus simulation
 #Project Structure :
 
 Plaintext
-AquaGuardian
-│
-├── main.c
-│
-├── hydration.c
-├── hydration.h
-│
-├── rtc.c
-├── rtc.h
-│
-├── lcd.c
-├── lcd.h
-├── lcd_defines.h
-│
-├── kpm.c
-├── kpm.h
-├── kpm_defines.h
-│
-├── led.c
-├── led.h
-│
-├── buzzer.c
-├── buzzer.h
-│
-├── interrupt.c
-├── interrupt.h
-│
-├── delay.c
-├── delay.h
-│
-├── defines.h
-├── types.h
-│
-└── README.md
+
+
+    AquaGuardian
+    │
+    ├── main.c
+    │
+    ├── hydration.c
+    ├── hydration.h
+    │
+    ├── rtc.c
+    ├── rtc.h
+    │
+    ├── lcd.c
+    ├── lcd.h
+    ├── lcd_defines.h
+    │
+    ├── kpm.c
+    ├── kpm.h
+    ├── kpm_defines.h
+    │
+    ├── led.c
+    ├── led.h
+    │
+    ├── buzzer.c
+    ├── buzzer.h
+    │
+    ├── interrupt.c
+    ├── interrupt.h
+    │
+    ├── delay.c
+    ├── delay.h
+    │
+    ├── defines.h
+    ├── types.h
+    │
+    └── README.md
+
 
 #Learning Outcomes :
 
