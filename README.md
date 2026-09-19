@@ -80,34 +80,6 @@ The system also provides a configuration mode using the **EINT1 external interru
 
 ## Block Diagram
 
-```text
-                         +----------------------+
-                         |      LPC2148         |
-                         |       ARM7           |
-                         |   Main Controller    |
-                         +----------+-----------+
-                                    |
-             +----------------------+----------------------+
-             |                      |                      |
-             |                      |                      |
-             v                      v                      v
-      +-------------+       +-------------+        +-------------+
-      |     RTC     |       |    16x2     |        |   Keypad    |
-      | Time / Date |       |     LCD     |        | Configuration|
-      +-------------+       +-------------+        +-------------+
-             |
-             |
-             v
-      +---------------------+
-      |  Reminder Controller |
-      +----------+----------+
-                 |
-        +--------+--------+
-        |        |        |
-        v        v        v
-   +---------+ +------+ +-------------+
-   | Buzzer  | | LEDs | | Drink Button|
-   +---------+ +------+ +-------------+
 Working Principle
 
 The system continuously monitors the RTC time.
