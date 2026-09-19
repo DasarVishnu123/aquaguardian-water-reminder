@@ -83,8 +83,10 @@ Plaintext
               │
               └── delay.c/h
                      └── Software delay functions
+
        
 ##System Operation
+
 
 The system initializes the LPC2148 peripherals.
 
@@ -103,6 +105,7 @@ Hydration progress is continuously monitored.
 The external interrupt provides access to the configuration mode.
 
 ##Configuration Menu :
+
 
 The external interrupt enters configuration mode. The keypad provides the following options:
 
