@@ -41,15 +41,18 @@ AquaGuardian is a smart hydration reminder system designed to help users maintai
 
 | Peripheral | LPC2148 Pin |
 | :--- | :--- |
-| Yellow LED | P1.24 |
-| Green LED | P1.25 |
-| Red LED | P1.26 |
-| Buzzer | P1.27 |
-| Drink Button | P0.23 |
-| EINT0 | P0.1 |
-| Keypad Rows | P1.16 – P1.19 |
-| Keypad Columns | P1.20 – P1.23 |
+| Yellow LED | P1.17 |
+| Green LED | P1.19 |
+| Red LED | P1.18 |
+| Buzzer | P1.16 |
+| Drink Button | P0.0 |
+| EINT0 | P0.3 |
+| Keypad Rows | P1.22 – P1.25 |
+| Keypad Columns | P1.26 – P1.29 |
 | LCD | P0.8 – P0.18 |
+
+## Block Diagram
+
 
 
 ## Software Modules :
@@ -58,51 +61,43 @@ The project follows a modular embedded-C design, with separate drivers for each 
 
 Plaintext
 
-              main.c
-              │
-              ├── hydration.c/h
-              │      └── Hydration and reminder management
-              │
-              ├── rtc.c/h
-              │      └── Real-Time Clock
-              │
-              ├── lcd.c/h
-              │      └── 16×2 LCD interface
-              │
-              ├── kpm.c/h
-              │      └── 4×4 keypad interface
-              │
-              ├── led.c/h
-              │      └── LED control
-              │
-              ├── buzzer.c/h
-              │      └── Buzzer control
-              │
-              ├── interrupt.c/h
-              │      └── External interrupt handling
-              │
-              └── delay.c/h
-                     └── Software delay functions
-
+            main_test.c
+            │
+            ├── rtc.c / rtc.h
+            │      └── Real-Time Clock configuration and timekeeping
+            │
+            ├── LCD.c / LCD.h / LCD_defines.h
+            │      └── 16×2 character LCD control and custom CGRAM characters
+            │
+            ├── KPM.c / KPM.h / KPM_defines.h
+            │      └── 4×4 matrix keypad scanning and keycode parsing
+            │
+            ├── delay.c / delay.h
+            │      └── Calibrated software delay routines
+            │
+            └── System Support
+                   ├── config.h   (Pin mappings, threshold limits, default goals)
+                   ├── MACROS.h   (Register bit manipulation macros)
+                   └── types.H    (Fixed-width integer data type definitions)
        
 ## System Operation
 
 
-The system initializes the LPC2148 peripherals.
+1.The system initializes the LPC2148 peripherals.
 
-The RTC provides the current time and date.
+2.The RTC provides the current time and date.
 
-The LCD displays hydration-related information.
+3.The LCD displays hydration-related information.
 
-The user can configure hydration settings using the keypad.
+4.The user can configure hydration settings using the keypad.
 
-When the configured reminder interval is reached, the system activates the buzzer and LED indicators.
+5.When the configured reminder interval is reached, the system activates the buzzer and LED indicators.
 
-Pressing the water-intake button updates the consumed-water count.
+6.Pressing the water-intake button updates the consumed-water count.
 
-Hydration progress is continuously monitored.
+7.Hydration progress is continuously monitored.
 
-The external interrupt provides access to the configuration mode.
+8.The external interrupt provides access to the configuration mode.
 
 ## Configuration Menu :
 
@@ -120,60 +115,60 @@ C → Exit configuration mode
 Project Flow :
 Plaintext
 
-              ┌──────────────────┐ 
-              │   System Start   │
-              └────────┬─────────┘ 
-                       ↓
-              Initialize Peripherals 
-                       ↓ 
-             ┌──────────────────────┐ 
-             │  Display RTC Status  │ 
-             │  & Hydration Status  │
-             └──────────┬───────────┘ 
-                        ↓
-                 Check Reminder Time 
-                        ↓ 
-             ┌──────────┴───────────┐ 
-             │                      │
-             │                      │
-        Reminder Due             No Reminder 
-             │                      │ 
-             ↓                      ↓
-        Buzzer + LED           Continue Monitoring 
-             │ 
-             ↓
-           Drink Button? 
-           /            \ 
-        Yes             No 
-         ↓              ↓ 
-    Increase Count     Track Missed 
-        │                  Reminder 
-        ↓ 
-    Update Progress 
-        │ 
-        └──────────────→ Continue
+                      ┌──────────────────┐ 
+                      │   System Start   │
+                      └────────┬─────────┘ 
+                               ↓
+                      Initialize Peripherals 
+                               ↓ 
+                     ┌──────────────────────┐ 
+                     │  Display RTC Status  │ 
+                     │  & Hydration Status  │
+                     └──────────┬───────────┘ 
+                                ↓
+                         Check Reminder Time 
+                                ↓ 
+                     ┌──────────┴───────────┐ 
+                     │                      │
+                     │                      │
+                Reminder Due             No Reminder 
+                     │                      │ 
+                     ↓                      ↓
+                Buzzer + LED           Continue Monitoring 
+                     │ 
+                     ↓
+                   Drink Button? 
+                   /            \ 
+                Yes             No 
+                 ↓              ↓ 
+            Increase Count     Track Missed 
+                │                  Reminder 
+                ↓ 
+            Update Progress 
+                │ 
+                └──────────────→ Continue
       
 ## Technologies Used :
 
-Embedded C
+. Embedded C
 
-ARM7 / LPC2148
+. ARM7 / LPC2148
 
-GPIO
+. GPIO
 
-RTC
+. RTC
 
-External Interrupts
+. External Interrupts
 
-16×2 LCD
+. 16×2 LCD
+ 
+. Matrix Keypad
 
-Matrix Keypad
+. Buzzer
 
-Buzzer
+. LED indicators
 
-LED indicators
-
-Modular Embedded-C Programming
+. Modular Embedded-C Programming
 
 ## Development Environment :
 
@@ -189,66 +184,55 @@ Proteus simulation
 
 Plaintext
 
-
-    AquaGuardian
-    │
-    ├── main.c
-    │
-    ├── hydration.c
-    ├── hydration.h
-    │
-    ├── rtc.c
-    ├── rtc.h
-    │
-    ├── lcd.c
-    ├── lcd.h
-    ├── lcd_defines.h
-    │
-    ├── kpm.c
-    ├── kpm.h
-    ├── kpm_defines.h
-    │
-    ├── led.c
-    ├── led.h
-    │
-    ├── buzzer.c
-    ├── buzzer.h
-    │
-    ├── interrupt.c
-    ├── interrupt.h
-    │
-    ├── delay.c
-    ├── delay.h
-    │
-    ├── defines.h
-    ├── types.h
-    │
-    └── README.md
+                    AquaGuardian
+                    │
+                    ├── main_test.c
+                    │
+                    ├── config.h
+                    │
+                    ├── LCD.c
+                    ├── LCD.h
+                    ├── LCD_defines.h
+                    │
+                    ├── rtc.c
+                    ├── rtc.h
+                    │
+                    ├── KPM.c
+                    ├── KPM.h
+                    ├── KPM_defines.h
+                    │
+                    ├── delay.c
+                    ├── delay.h
+                    │
+                    ├── MACROS.h
+                    ├── types.H
+                    │
+                    └── README.md
 
 
 ## Learning Outcomes :
 
-This project provided practical experience in:
+. This project provided practical experience in:
 
-Embedded C programming
+. Embedded C programming
 
-ARM7 LPC2148 GPIO programming
+. ARM7 LPC2148 GPIO programming
 
-Peripheral driver development
+. Peripheral driver development
 
-Interrupt handling
+. Interrupt handling
 
-RTC programming
+. RTC programming
 
-LCD interfacing
+. LCD interfacing
 
-Matrix keypad interfacing
+. Matrix keypad interfacing
 
-Buzzer and LED control
+. Buzzer and LED control
 
-Modular driver-based software design
+. Modular driver-based software design
 
-Embedded application design
+. Embedded application design
 
 ## Author :
 
