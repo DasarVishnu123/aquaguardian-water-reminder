@@ -53,7 +53,7 @@ AquaGuardian is a smart hydration reminder system designed to help users maintai
 
 ## Block Diagram
 
-![AquaGuardian Block Diagram](block_diagram1.png)
+![Block Diagram](./diagram.png)
 
 ## Software Modules :
 
